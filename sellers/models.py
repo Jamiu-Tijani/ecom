@@ -16,7 +16,7 @@ class Business(Timestamp):
     extra_phone_number = models.CharField(max_length=20)
     legal_id = CloudinaryField('image')
     referrer = models.EmailField(max_length=50)
-    no_of_employees = models.CharField(choices=EMPLOYEES,)
+    no_of_employees = models.CharField(choices=EMPLOYEES,max_length=20)
     business_reg_number = models.CharField(max_length=255,null=True)
     registeration_certificate = CloudinaryField('image')
     legal_entity_country = models.CharField(max_length=255)

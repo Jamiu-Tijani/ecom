@@ -20,7 +20,7 @@ class ErrorMessages:
 
 
 class SuccessMessages:
-    PREDICTION_SUCCESSFUL = _("Breed prediction successful")
+    BUSINESS_CREATE_SUCCESSFUL = _("Business creation successful")
     PETS_PROFILES_FOUND = _('Pets profile data for user fetch successful!')
     WEIGHT_FOUND = _('Weight datas fetch for user successfully')
     PET_PROFILE_CREATED = _('Pet profile created successfully!')

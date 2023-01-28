@@ -49,7 +49,7 @@ class AccountService:
         login(request, user)
         user_logged_in.send(sender=user.__class__, request=request, user=user)
         token, created = self.token_model.objects.get_or_create(user=user)
-        data = {'token': token.key}
+        data = {'token': token.key,"username":username,"email":email}
 
         # Send email verification to the user
         response = OTPServices.send_verification_email(email=email)
