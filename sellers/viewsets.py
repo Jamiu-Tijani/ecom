@@ -13,20 +13,19 @@ class BusinessViewSet(CustomResponseMixin, viewsets.ViewSet):
     def create_business(self, request):
         serialized_data = inline_serializer(
             fields={
-    "seller_id" : serializers.UUIDField(auto_created=True),
     "shop_name" : serializers.CharField(max_length=255),
     "contact_address" : serializers.CharField(max_length=1000),
     "postal_code" : serializers.CharField(max_length=10),
-    "business_type" : serializers.CharField(choices=BUSINESS_TYPE,max_length=20),
+    "business_type" : serializers.ChoiceField(choices=BUSINESS_TYPE),
     "full_name" : serializers.CharField(max_length=255),
     "phone_number" : serializers.CharField(max_length=20),
     "extra_phone_number" : serializers.CharField(max_length=20),
     "legal_id" : serializers.ImageField(),
     "referrer" : serializers.EmailField(max_length=50),
-    "no_of_employees" :serializers.CharField(choices=EMPLOYEES,),
-    "business_reg_number" : serializers.CharField(max_length=255,null=True),
-    "registeration_certificate" : serializers.ImageField(),
-    "legal_entity_country" : serializers.CharField(max_length=255),
+    "no_of_employees" :serializers.ChoiceField(choices=EMPLOYEES,),
+    "business_reg_number" : serializers.CharField(max_length=255,required=False),
+    "registeration_certificate" : serializers.ImageField(required=False),
+    "legal_entity_country" : serializers.CharField(max_length=255,required=False),
     "shipping_country" : serializers.CharField(max_length=255)
             },
             data=request.data)
