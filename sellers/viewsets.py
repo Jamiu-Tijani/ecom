@@ -23,9 +23,9 @@ class BusinessViewSet(CustomResponseMixin, viewsets.ViewSet):
     "legal_id" : serializers.ImageField(),
     "referrer" : serializers.EmailField(max_length=50),
     "no_of_employees" :serializers.ChoiceField(choices=EMPLOYEES,),
-    "business_reg_number" : serializers.CharField(max_length=255,required=False),
+    "business_reg_number" : serializers.CharField(max_length=255),
     "registeration_certificate" : serializers.ImageField(required=False),
-    "legal_entity_country" : serializers.CharField(max_length=255,required=False),
+    "legal_entity_country" : serializers.CharField(max_length=255),
     "shipping_country" : serializers.CharField(max_length=255)
             },
             data=request.data)
