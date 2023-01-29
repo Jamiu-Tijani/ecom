@@ -17,7 +17,7 @@ class BussinessService:
         shop_exists = self.validate_shop_name(shop_name)
         if shop_exists:
             return dict(error=ErrorMessages.USER_ALREADY_EXISTS, status=409)
-        customer = self.customer.object.get(email=request.user.email)
+        customer = self.customer.objects.get(email=request.user.email)
         business = self.business.objects.create(customer,**kwargs)
         business.save()
         business_dict = {x:business.__dict__[x] for x in business.__dict__ if x[0]!= "_" }
