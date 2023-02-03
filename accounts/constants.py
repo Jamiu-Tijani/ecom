@@ -17,11 +17,13 @@ class ErrorMessages:
     INVALID_EMAIL = _('You have entered an invalid email address, please try again!')
     INTERNAL_SERVER_ERROR = _('An internal error is encountered!')
     WEIGHT_NOT_FOUND = _('Weight datas not found for the given user')
+    SHOP_NOT_FOUND = _("Shop does not exist")
 
 
 class SuccessMessages:
+    BUSINESS_DELETE_SUCCESS = _("Business Deleted Successfully") 
     BUSINESS_CREATE_SUCCESSFUL = _("Business creation successful")
-    PETS_PROFILES_FOUND = _('Pets profile data for user fetch successful!')
+    BUSINESS_FOUND = _('Business profile for user fetch successful!')
     WEIGHT_FOUND = _('Weight datas fetch for user successfully')
     PET_PROFILE_CREATED = _('Pet profile created successfully!')
     UPDATED_MEDICAL_CONDITION = _('Medical condition updated Successfully')

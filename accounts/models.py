@@ -19,7 +19,7 @@ class Timestamp(models.Model):
 
 class Customer(User, Timestamp):
     owner_id = models.UUIDField(default=uuid.uuid4, editable=False)
-    verified_email = models.BooleanField(default=False)
+    is_seller = models.BooleanField(default=False)
 
 
     def __str__(self):

@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "rest_framework",
     'rest_framework.authtoken',
+    #'haystack',
+   # "django_elasticsearch_dsl",
+    "products",
+    'mptt',
     "accounts",
     'cloudinary',
     'corsheaders',
@@ -101,7 +105,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 25
+    'PAGE_SIZE': 10
 }
 
 
@@ -167,3 +171,32 @@ cloudinary.config(
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+# HAYSTACK_SEARCH_RESULTS_PER_PAGE = 12
+
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         'ENGINE': 'haystack.backends.elasticsearch7_backend.Elasticsearch7SearchEngine',
+#         'URL': 'http://127.0.0.1:9200/',
+#         'INDEX_NAME': 'haystack',
+#     },
+# }
+
+# from urllib.parse import quote_plus as urlquote
+# host_ip = "35.193.143.25"
+# host_port = "9200"
+# user_name = "elastic"
+# password = "Be2VhABIseCPQFHZMmldk5Qk"
+# elk_base_url = 'elasticsearch://{user_name}:{password}@{host_ip}:{host_port}'
+# elastic_search_url = elk_base_url.format(user_name=user_name,
+#                                          password=urlquote(password),
+#                                          # password may contain special characters
+#                                          host_ip=host_ip,
+#                                          host_port=9200)
+
+# # Elasticsearch configuration
+# ELASTICSEARCH_DSL = {
+#     'default':        {'hosts':'127.0.0.1:9200'} 
+# }

@@ -49,7 +49,10 @@ class AccountService:
         login(request, user)
         user_logged_in.send(sender=user.__class__, request=request, user=user)
         token, created = self.token_model.objects.get_or_create(user=user)
-        data = {'token': token.key,"username":username,"email":email}
+        user_type = "buyer"
+        if user.is_seller:
+            user_type = "seller"
+        data = {'token': token.key,"username":username,"email":email,"user_type":user_type}
 
         # Send email verification to the user
         response = OTPServices.send_verification_email(email=email)
@@ -64,10 +67,13 @@ class AccountService:
             return dict(error=ErrorMessages.USER_ACCOUNT_NOT_FOUND)
         if not user.check_password(password):
             return dict(error=ErrorMessages.INCORRECT_PASSWORD)
+        user_type = "buyer"
+        if user.is_seller:
+            user_type = "seller"
         login(request, user)
         user_logged_in.send(sender=user.__class__, request=request, user=user)
         token, created = self.token_model.objects.get_or_create(user=user)
-        data = {'token': token.key}
+        data = {'token': token.key,"user_type":user_type}
         return dict(success=SuccessMessages.SUCCESSFUL_LOGIN, data=data, status=200)
 
     @staticmethod

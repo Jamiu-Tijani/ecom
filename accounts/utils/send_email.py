@@ -19,6 +19,7 @@ class EmailThread(threading.Thread):
     def run(self):
         try:
             context, status = send_mail(self.recipient, self.subject, self.message, self.context, self.sender)
+            print(context)
             print("Sending email to", self.recipient, "with subject", self.subject)
         except Exception as e:
             print("Error sending email:", e)
